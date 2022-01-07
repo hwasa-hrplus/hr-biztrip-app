@@ -15,6 +15,7 @@ import com.poscoict.biztrip.domain.project.ProjectRepository;
 import com.poscoict.biztrip.web.dto.BizTripResponseDto;
 import com.poscoict.biztrip.web.dto.BizTripSaveRequestDto;
 import com.poscoict.biztrip.web.dto.BizTripUpdateRequestDto;
+import com.poscoict.biztrip.web.dto.ProjectResponseDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -37,26 +38,29 @@ public class BizTripService {
 	public List<BizTripResponseDto> findAll() {
 		return bizTripRepository.findAll().stream().map(BizTripResponseDto::new).collect(Collectors.toList());
 	}
-	
+
 	@Transactional
-    public void delete(Long id){
-		BizTrip entity = bizTripRepository.findById(id).orElseThrow(()->new IllegalArgumentException("해당 출장정보가 없습니다. id="+id));
-        //postsById 메소드를 활용하면 id로 삭제할 수도 있음
+	public void delete(Long id) {
+		BizTrip entity = bizTripRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("해당 출장정보가 없습니다. id=" + id));
+		// postsById 메소드를 활용하면 id로 삭제할 수도 있음
 		bizTripRepository.delete(entity);
-    }
-	
+	}
+
 	@Transactional
-    public Long save(BizTripSaveRequestDto requestDto){
+	public Long save(BizTripSaveRequestDto requestDto) {
 		BizPurpose bizPurpose = bizPurposeRepository.findByName(requestDto.getBizPurposeName());
 		Project project = projectRepository.findByName(requestDto.getProjectName());
-        return bizTripRepository.save(requestDto.toEntity(bizPurpose, project)).getId();//DTO 객체를 Entity로 매핑해서 Repository에서 처리하기
-    }
-	
+		return bizTripRepository.save(requestDto.toEntity(bizPurpose, project)).getId();// DTO 객체를 Entity로 매핑해서
+																						// Repository에서 처리하기
+	}
+
 	@Transactional
-    public Long update(Long id, BizTripUpdateRequestDto requestDto) {
-		BizTrip entity = bizTripRepository.findById(id).orElseThrow(()->new IllegalArgumentException("해당 출장정보가 없습니다. id="+id));
-		entity.update(requestDto.isApproved());//영속성 컨텍스트 엔티티 영구저장
-        return id;
-    }
-	
+	public Long update(Long id, BizTripUpdateRequestDto requestDto) {
+		BizTrip entity = bizTripRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("해당 출장정보가 없습니다. id=" + id));
+		entity.update(requestDto.isApproved());// 영속성 컨텍스트 엔티티 영구저장
+		return id;
+	}
+
 }

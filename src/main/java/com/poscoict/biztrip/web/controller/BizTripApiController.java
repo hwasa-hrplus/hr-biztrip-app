@@ -11,9 +11,11 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.poscoict.biztrip.service.BizTripService;
+import com.poscoict.biztrip.service.ProjectService;
 import com.poscoict.biztrip.web.dto.BizTripResponseDto;
 import com.poscoict.biztrip.web.dto.BizTripSaveRequestDto;
 import com.poscoict.biztrip.web.dto.BizTripUpdateRequestDto;
+import com.poscoict.biztrip.web.dto.ProjectResponseDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -28,7 +30,7 @@ public class BizTripApiController {
     }
 	
 	@GetMapping("/api/v1/biztrip/list")
-    public List<BizTripResponseDto> findByAll(){
+    public List<BizTripResponseDto> findAll(){
         return bizTripService.findAll();
     }
 	
