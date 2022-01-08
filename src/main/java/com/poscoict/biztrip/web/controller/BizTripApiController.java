@@ -24,28 +24,28 @@ import lombok.RequiredArgsConstructor;
 public class BizTripApiController {
 	private final BizTripService bizTripService;
 	
-	@GetMapping("/api/v1/biztrip/{id}")
+	@GetMapping("/{id}")
     public BizTripResponseDto findById(@PathVariable Long id){
         return bizTripService.findById(id);
     }
 	
-	@GetMapping("/api/v1/biztrip/list")
+	@GetMapping("/list")
     public List<BizTripResponseDto> findAll(){
         return bizTripService.findAll();
     }
 	
-	@DeleteMapping("/api/v1/biztrip/{id}")
+	@DeleteMapping("/{id}")
     public Long delete(@PathVariable Long id){
 		bizTripService.delete(id);
         return id;
     }
 	
-	@PostMapping("/api/v1/biztrip")
+	@PostMapping("/")
     public Long save(@RequestBody BizTripSaveRequestDto requestDto){
         return bizTripService.save(requestDto);
     }
 	
-	@PutMapping("/api/v1/biztrip/{id}")
+	@PutMapping("/{id}")
     public Long update(@PathVariable Long id, @RequestBody BizTripUpdateRequestDto requestDto){
         return bizTripService.update(id, requestDto);
     }

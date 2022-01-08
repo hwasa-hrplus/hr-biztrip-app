@@ -15,7 +15,6 @@ import com.poscoict.biztrip.domain.project.ProjectRepository;
 import com.poscoict.biztrip.web.dto.BizTripResponseDto;
 import com.poscoict.biztrip.web.dto.BizTripSaveRequestDto;
 import com.poscoict.biztrip.web.dto.BizTripUpdateRequestDto;
-import com.poscoict.biztrip.web.dto.ProjectResponseDto;
 
 import lombok.RequiredArgsConstructor;
 
