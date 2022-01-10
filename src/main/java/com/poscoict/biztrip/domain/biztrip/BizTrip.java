@@ -57,10 +57,14 @@ public class BizTrip {
 	@ManyToOne
 	@JoinColumn(name = "project_code")
 	private Project project;
+	
+	//사원아이디 추가
+	@Column(name = "employee_id")
+	private Long employeeId;
 
 	@Builder
 	public BizTrip(Long id, String companyName, String location, Date startDate, Date endDate, String progress,
-			Long bossId, boolean approved, BizPurpose bizPurpose, Project project) {
+			Long bossId, boolean approved, BizPurpose bizPurpose, Project project, Long employeeId) {
 		super();
 		this.id = id;
 		this.companyName = companyName;
@@ -72,6 +76,7 @@ public class BizTrip {
 		this.approved = approved;
 		this.bizPurpose = bizPurpose;
 		this.project = project;
+		this.employeeId = employeeId;
 	}
 	
 	public void update(boolean approved) {

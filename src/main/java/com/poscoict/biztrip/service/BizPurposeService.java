@@ -23,11 +23,14 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor // @Autowired 없이 생성자로 주입하는 방식
 //final이 선언된 필드를 인자값으로 하는 생성자를 생성함
 @Service
-public class ProjectService {
-	private final ProjectRepository projectRepository;
+public class BizPurposeService {
+
+	private final BizPurposeRepository bizPurposeRepository;
 	
 	@Transactional(readOnly = true) // 등록,수정,삭제 기능이 전혀 없는 서비스에서 조회 속도를 개선할 수 있음
-	public List<ProjectResponseDto> findAll() {
-		return projectRepository.findAll().stream().map(ProjectResponseDto::new).collect(Collectors.toList());
+	public List<BizPurposeResponseDto> findAll() {
+		return bizPurposeRepository.findAll().stream().map(BizPurposeResponseDto::new).collect(Collectors.toList());
 	}
+	
+
 }

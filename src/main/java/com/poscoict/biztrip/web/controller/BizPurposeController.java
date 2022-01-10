@@ -5,18 +5,21 @@ import java.util.List;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.poscoict.biztrip.domain.bizpurpose.BizPurpose;
+import com.poscoict.biztrip.service.BizPurposeService;
 import com.poscoict.biztrip.service.ProjectService;
+import com.poscoict.biztrip.web.dto.BizPurposeResponseDto;
 import com.poscoict.biztrip.web.dto.ProjectResponseDto;
 
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 @RestController
-public class ProjectApiController {
-	private final ProjectService projectService;
+public class BizPurposeController {
+	private final BizPurposeService bizPurposeService;
 	
-	@GetMapping("/project/list")
-    public List<ProjectResponseDto> findByAll(){
-        return projectService.findAll();
+	@GetMapping("/bizpurpose/list")
+    public List<BizPurposeResponseDto> findByAll(){
+        return bizPurposeService.findAll();
     }
 }
