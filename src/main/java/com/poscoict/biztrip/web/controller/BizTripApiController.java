@@ -34,6 +34,12 @@ public class BizTripApiController {
         return bizTripService.findAll();
     }
 	
+	
+	@GetMapping("/employee/{employeeId}")
+	 public List<BizTripResponseDto> findByEmployeeId(@PathVariable Long employeeId){
+        return bizTripService.findByEmployeeId(employeeId);
+    }
+	
 	@DeleteMapping("/{id}")
     public Long delete(@PathVariable Long id){
 		bizTripService.delete(id);

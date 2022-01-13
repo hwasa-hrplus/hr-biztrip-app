@@ -37,6 +37,11 @@ public class BizTripService {
 	public List<BizTripResponseDto> findAll() {
 		return bizTripRepository.findAll().stream().map(BizTripResponseDto::new).collect(Collectors.toList());
 	}
+	
+	@Transactional(readOnly = true) // 등록,수정,삭제 기능이 전혀 없는 서비스에서 조회 속도를 개선할 수 있음
+	public List<BizTripResponseDto> findByEmployeeId(Long employeeId) {
+		return bizTripRepository.findByEmployeeId(employeeId).stream().map(BizTripResponseDto::new).collect(Collectors.toList());
+	}
 
 	@Transactional
 	public void delete(Long id) {
@@ -61,5 +66,7 @@ public class BizTripService {
 		entity.update(requestDto.isApproved());// 영속성 컨텍스트 엔티티 영구저장
 		return id;
 	}
+	
+
 
 }
