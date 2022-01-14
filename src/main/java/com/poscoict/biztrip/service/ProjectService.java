@@ -6,16 +6,7 @@ import java.util.stream.Collectors;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.poscoict.biztrip.domain.bizpurpose.BizPurpose;
-import com.poscoict.biztrip.domain.bizpurpose.BizPurposeRepository;
-import com.poscoict.biztrip.domain.biztrip.BizTrip;
-import com.poscoict.biztrip.domain.biztrip.BizTripRepository;
-import com.poscoict.biztrip.domain.project.Project;
 import com.poscoict.biztrip.domain.project.ProjectRepository;
-import com.poscoict.biztrip.web.dto.BizPurposeResponseDto;
-import com.poscoict.biztrip.web.dto.BizTripResponseDto;
-import com.poscoict.biztrip.web.dto.BizTripSaveRequestDto;
-import com.poscoict.biztrip.web.dto.BizTripUpdateRequestDto;
 import com.poscoict.biztrip.web.dto.ProjectResponseDto;
 
 import lombok.RequiredArgsConstructor;
@@ -30,4 +21,5 @@ public class ProjectService {
 	public List<ProjectResponseDto> findAll() {
 		return projectRepository.findAll().stream().map(ProjectResponseDto::new).collect(Collectors.toList());
 	}
+
 }
