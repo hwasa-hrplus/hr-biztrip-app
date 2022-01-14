@@ -20,6 +20,7 @@ public class BizTripResponseDto {
     private Long bossId;
     private Project project;
     private boolean approved;
+    private Long employeeId;
     
     public BizTripResponseDto(BizTrip entity) {
 		this.id = entity.getId();
@@ -32,5 +33,6 @@ public class BizTripResponseDto {
 		this.bossId = entity.getBossId();
 		this.project = entity.getProject();
 		this.approved = entity.isApproved();
+		this.employeeId = entity.getEmployeeId();
 	}
 }

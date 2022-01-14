@@ -19,6 +19,7 @@ public class BizTripSaveRequestDto {
     private boolean approved;
     private String bizPurposeName;
     private String projectName;
+    private Long employeeId;
     
     public BizTrip toEntity(BizPurpose bizPurpose, Project project){
     	return BizTrip.builder()
@@ -31,6 +32,7 @@ public class BizTripSaveRequestDto {
 			.approved(approved)
 			.bizPurpose(bizPurpose)
 			.project(project)
+			.employeeId(employeeId)
 			.build();    	
     }
 }

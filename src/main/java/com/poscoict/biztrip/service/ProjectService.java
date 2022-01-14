@@ -12,6 +12,7 @@ import com.poscoict.biztrip.domain.biztrip.BizTrip;
 import com.poscoict.biztrip.domain.biztrip.BizTripRepository;
 import com.poscoict.biztrip.domain.project.Project;
 import com.poscoict.biztrip.domain.project.ProjectRepository;
+import com.poscoict.biztrip.web.dto.BizPurposeResponseDto;
 import com.poscoict.biztrip.web.dto.BizTripResponseDto;
 import com.poscoict.biztrip.web.dto.BizTripSaveRequestDto;
 import com.poscoict.biztrip.web.dto.BizTripUpdateRequestDto;

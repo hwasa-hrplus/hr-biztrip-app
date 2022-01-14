@@ -15,7 +15,7 @@ import lombok.RequiredArgsConstructor;
 public class ProjectApiController {
 	private final ProjectService projectService;
 	
-	@GetMapping("/api/v1/project/list")
+	@GetMapping("/project/list")
     public List<ProjectResponseDto> findByAll(){
         return projectService.findAll();
     }
