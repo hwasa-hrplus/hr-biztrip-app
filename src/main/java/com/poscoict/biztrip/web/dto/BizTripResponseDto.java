@@ -16,7 +16,6 @@ public class BizTripResponseDto {
     private String location;
     private Date startDate;
     private Date endDate;
-    private String progress;
     private Long bossId;
     private Project project;
     private boolean approved;
@@ -29,7 +28,6 @@ public class BizTripResponseDto {
 		this.location = entity.getLocation();
 		this.startDate = entity.getStartDate();
 		this.endDate = entity.getEndDate();
-		this.progress = entity.getProgress();
 		this.bossId = entity.getBossId();
 		this.project = entity.getProject();
 		this.approved = entity.isApproved();

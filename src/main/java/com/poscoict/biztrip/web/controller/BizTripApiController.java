@@ -34,6 +34,10 @@ public class BizTripApiController {
         return bizTripService.findAll();
     }
 	
+	@GetMapping("/unapproved")
+    public List<BizTripResponseDto> findByApproved(){
+        return bizTripService.findByApproved(false);
+    }
 	
 	@GetMapping("/employee/{employeeId}")
 	 public List<BizTripResponseDto> findByEmployeeId(@PathVariable Long employeeId){

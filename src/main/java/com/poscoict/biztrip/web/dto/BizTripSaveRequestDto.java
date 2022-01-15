@@ -14,7 +14,6 @@ public class BizTripSaveRequestDto {
     private String location;
     private Date startDate;
     private Date endDate;
-    private String progress;
     private Long bossId;
     private boolean approved;
     private String bizPurposeName;
@@ -27,12 +26,11 @@ public class BizTripSaveRequestDto {
 			.location(location)
 			.startDate(startDate)
 			.endDate(endDate)
-			.progress(progress)
 			.bossId(bossId)
-			.approved(approved)
+			.approved(false)
 			.bizPurpose(bizPurpose)
 			.project(project)
 			.employeeId(employeeId)
-			.build();    	
+			.build();
     }
 }
