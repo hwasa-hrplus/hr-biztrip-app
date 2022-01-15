@@ -41,9 +41,6 @@ public class BizTrip {
 	@Column(name = "end_date")
 	private Date endDate;
 	
-	@Column(name = "progress")
-	private String progress;
-	
 	@Column(name = "boss_id")
 	private Long bossId;
 	
@@ -63,7 +60,7 @@ public class BizTrip {
 	private Long employeeId;
 
 	@Builder
-	public BizTrip(Long id, String companyName, String location, Date startDate, Date endDate, String progress,
+	public BizTrip(Long id, String companyName, String location, Date startDate, Date endDate, 
 			Long bossId, boolean approved, BizPurpose bizPurpose, Project project, Long employeeId) {
 		super();
 		this.id = id;
@@ -71,7 +68,6 @@ public class BizTrip {
 		this.location = location;
 		this.startDate = startDate;
 		this.endDate = endDate;
-		this.progress = progress;
 		this.bossId = bossId;
 		this.approved = approved;
 		this.bizPurpose = bizPurpose;
