@@ -15,10 +15,11 @@ import lombok.NoArgsConstructor;
 @Entity
 @Table(name = "employee_project")
 public class EmployeeProject {	
-	@Id
+	
 	@Column(name = "code", nullable = false)	
 	private String code;
-		
+	
+	@Id
 	@Column(name = "id")
 	private Long id;
 
@@ -28,5 +29,12 @@ public class EmployeeProject {
 		super();
 		this.code = code;
 		this.id = id;
+	}
+
+
+	public void updateProject(String code, Long id) {
+		this.id = id;
+		this.code = code;
+		
 	}	
 }
