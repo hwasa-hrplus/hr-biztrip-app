@@ -21,4 +21,5 @@ public class ProjectService {
 	public List<ProjectResponseDto> findAll() {
 		return projectRepository.findAll().stream().map(ProjectResponseDto::new).collect(Collectors.toList());
 	}
+
 }
