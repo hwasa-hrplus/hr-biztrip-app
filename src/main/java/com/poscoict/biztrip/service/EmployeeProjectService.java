@@ -1,10 +1,14 @@
 package com.poscoict.biztrip.service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.poscoict.biztrip.domain.employeeProject.EmployeeProject;
 import com.poscoict.biztrip.domain.employeeProject.EmployeeProjectRepository;
+import com.poscoict.biztrip.web.dto.BizTripResponseDto;
 import com.poscoict.biztrip.web.dto.EmployeeProjectDto;
 
 import lombok.RequiredArgsConstructor;
@@ -26,6 +30,11 @@ public class EmployeeProjectService {
 				.orElseThrow(() -> new IllegalArgumentException("해당 사용자정보가 없습니다. id=" + id));
 
 		return new EmployeeProjectDto(entity);
+	}
+	
+	@Transactional(readOnly = true) // 등록,수정,삭제 기능이 전혀 없는 서비스에서 조회 속도를 개선할 수 있음
+	public List<EmployeeProjectDto> findAll() {
+		return employeeProjectRepository.findAll().stream().map(EmployeeProjectDto::new).collect(Collectors.toList());
 	}
 	
 	@Transactional

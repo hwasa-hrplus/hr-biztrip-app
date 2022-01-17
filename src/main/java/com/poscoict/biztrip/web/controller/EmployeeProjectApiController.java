@@ -1,5 +1,7 @@
 package com.poscoict.biztrip.web.controller;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -9,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.poscoict.biztrip.service.EmployeeProjectService;
+import com.poscoict.biztrip.web.dto.BizTripResponseDto;
 import com.poscoict.biztrip.web.dto.EmployeeProjectDto;
 
 import lombok.RequiredArgsConstructor;
@@ -30,6 +33,11 @@ public class EmployeeProjectApiController {
 	@GetMapping("/project/{id}")
     public EmployeeProjectDto getProjectById(@PathVariable Long id){
 		  return epService.getProjectById(id);
+    }
+	
+	@GetMapping("/project/employee")
+    public List<EmployeeProjectDto> getAll(){
+		  return epService.findAll();
     }
 	
 	//@지수
