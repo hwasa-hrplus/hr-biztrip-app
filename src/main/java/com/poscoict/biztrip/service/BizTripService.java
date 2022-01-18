@@ -10,11 +10,15 @@ import com.poscoict.biztrip.domain.bizpurpose.BizPurpose;
 import com.poscoict.biztrip.domain.bizpurpose.BizPurposeRepository;
 import com.poscoict.biztrip.domain.biztrip.BizTrip;
 import com.poscoict.biztrip.domain.biztrip.BizTripRepository;
+import com.poscoict.biztrip.domain.employeeboss.EmployeeBoss;
+import com.poscoict.biztrip.domain.employeeboss.EmployeeBossRepository;
 import com.poscoict.biztrip.domain.project.Project;
 import com.poscoict.biztrip.domain.project.ProjectRepository;
 import com.poscoict.biztrip.web.dto.BizTripResponseDto;
 import com.poscoict.biztrip.web.dto.BizTripSaveRequestDto;
 import com.poscoict.biztrip.web.dto.BizTripUpdateRequestDto;
+import com.poscoict.biztrip.web.dto.EmpBossRabbit;
+import com.poscoict.biztrip.web.dto.EmployeeBossResponseDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -25,7 +29,7 @@ public class BizTripService {
 	private final BizTripRepository bizTripRepository;
 	private final BizPurposeRepository bizPurposeRepository;
 	private final ProjectRepository projectRepository;
-
+	private final EmployeeBossRepository employeeBossRepository;
 	public BizTripResponseDto findById(Long id) {
 		BizTrip entity = bizTripRepository.findById(id)
 				.orElseThrow(() -> new IllegalArgumentException("해당 출장정보가 없습니다. id=" + id));
@@ -72,6 +76,15 @@ public class BizTripService {
 		return id;
 	}
 	
+	public EmployeeBossResponseDto findBossId(Long id) {
+		EmployeeBoss entity = employeeBossRepository.findById(id)
+				.orElseThrow(() -> new IllegalArgumentException("해당 출장정보가 없습니다. id=" + id));
 
-
+		return new EmployeeBossResponseDto(entity);
+	}
+	
+	@Transactional
+	public Long saveEmpBoss(EmployeeBoss employeeBoss) {
+		return employeeBossRepository.save(employeeBoss).getId();
+	}	
 }

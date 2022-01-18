@@ -11,11 +11,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.poscoict.biztrip.service.BizTripService;
-import com.poscoict.biztrip.service.ProjectService;
 import com.poscoict.biztrip.web.dto.BizTripResponseDto;
 import com.poscoict.biztrip.web.dto.BizTripSaveRequestDto;
 import com.poscoict.biztrip.web.dto.BizTripUpdateRequestDto;
-import com.poscoict.biztrip.web.dto.ProjectResponseDto;
+import com.poscoict.biztrip.web.dto.EmployeeBossResponseDto;
 
 import lombok.RequiredArgsConstructor;
 
@@ -58,5 +57,10 @@ public class BizTripApiController {
 	@PutMapping("/{id}")
     public Long update(@PathVariable Long id, @RequestBody BizTripUpdateRequestDto requestDto){
         return bizTripService.update(id, requestDto);
+    }
+	
+	@GetMapping("employeeboss/{id}")
+    public EmployeeBossResponseDto findBossId(@PathVariable Long id){
+        return bizTripService.findBossId(id);
     }
 }
