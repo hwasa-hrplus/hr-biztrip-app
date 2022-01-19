@@ -24,7 +24,7 @@ class RecvModule {
 	EmployeeBossRepository employeeBossRepository;
 	@RabbitListener(bindings = @QueueBinding(
 			exchange = @Exchange(
-					name = "Exchange", type = ExchangeTypes.TOPIC), 
+					name = "Exchange", type = ExchangeTypes.DIRECT), 
 			value = @Queue(name = "empbossSignup"), // 받는놈의 키																																					// 키
 			key = "empboss")) // 주는놈의 키
 	
